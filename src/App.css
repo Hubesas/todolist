@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+img {
+  width: 200px;
+  height: 200px;
+}
+.card-width {
+  width: 400px;
+}
+
+.iv {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.user {
+  padding: 10px;
+  margin: 10px;
+  background-color: gray;
+}
