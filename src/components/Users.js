@@ -1,19 +1,53 @@
+import React from 'react';
+import {Row} from "react-bootstrap";
+import {Col} from "react-bootstrap";
 
 const Users = ({user}) => {
-    console.log(user)
+
+    let style = {
+        eyes: user.eyeColor,
+        height: ``,
+        gender: ``,
+        weight: ``,
+    }
+
+    if (user.height > 170) {
+        style.height = `orange`
+    }
+    else {
+        style.height = `green`}
+
+    if (user.gender === `male`) {
+        style.gender = `blue`
+    }
+    else {
+        style.gender = `pink`
+    }
+
+    if (user.weight > 80) {
+        style.weight = `2px solid black`
+    }
+
     return (
-        <div className="user" >
-            <h1>{user[0].id.name} - {user[0].id.value}</h1>
-            <h1>{user[0].registered.date}</h1>
-            <img src={user[0].picture.large} alt=""/>
-            <h1>{user[0].name.title}. {user[0].name.first} {user[0].name.last}</h1>
-            <h1>Age: {user[0].registered.age}, Gender: {user[0].gender}</h1>
-                <h1>Email: {user[0].email}</h1>
+        <Row className="d-flex" >
+            <Col className="d-flex gap-2" style={{backgroundColor: style.gender, border:style.weight}} >
+                <img src={user.image} alt=""/>
+                <div>
+                    <h1>{user.firstName}</h1>
+                    <div>
+                        <h3 style={{backgroundColor: style.eyes}} >Eyes Color: {user.eyeColor}</h3>
+                    </div>
+                    <div style={{backgroundColor: style.height}} >
+                        <h3>Height: {user.height} cm</h3>
+                    </div>
 
-                <h1>{user[0].location.street.name} st., {user[0].location.city}, {user[0].location.state},  {user[0].location.country}  </h1>
-                <h1>Timezone: {user[0].location.timezone.offset}, {user[0].location.timezone.description}</h1>
+                    <h3>Gender: {user.gender}</h3>
+                    <h3>Weight: {user.weight} kg</h3>
+                </div>
+            </Col>
 
-        </div>
+
+        </Row>
     );
 };
 
